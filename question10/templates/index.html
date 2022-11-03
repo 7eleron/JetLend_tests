@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>JetLend test</title>
+</head>
+<body>
+<div class="task-1">
+    <p>Число заемщиков, имеющих закрытые займы (status = closed).</p>
+    {% for borrower in borrower_close %}
+        <p>{{ borrower.borrower }} статус "closed".</p>
+    {% endfor %}
+    <p>Число заемщиков {{ count_closed }}!</p>
+</div>
+<div class="task-2">
+    <p>Число заемщиков, для которых существует хотя бы один заем, созданный в 2022 году.</p>
+    {% for borrower in borrower_in_2022 %}
+        <p>{{ borrower.borrower }} создан {{ borrower.created_at }}.</p>
+    {% endfor %}
+    <p>Число заемщиков {{ amount_borrower_in_2022 }}!</p>
+</div>
+<div class="task-3">
+    <p>Совокупный объем (amount) всех активных займов (status = active),<br> принадлежащим заемщикам, которые зарегистрировались в 2021 году.</p>
+    <p>Совокупный объем {{ sum_amount_2021 }}руб!</p>
+</div>
+</body>
+<style>
+    body {
+        text-align: center;
+    }
+</style>
+</html>
